@@ -9,7 +9,12 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "vue": "^3.0.0"
+    "socket.io-client": "^4.4.1",
+    "sweetalert2": "^11.4.4",
+    "vue": "^3.0.0",
+    "vue-router": "^4.0.12",
+    "vue-socket.io": "^3.0.10",
+    "vue-web-cam": "^1.9.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
