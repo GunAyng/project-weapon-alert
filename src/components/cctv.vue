@@ -78,7 +78,7 @@ export default {
     //   .then(data => this.products = data)
     //   .catch(err => console.log(err.message))
     axios
-      .get('http://192.168.1.5:8000/getdb')
+      .get('http://127.0.0.1:8000/getdb')
       .then(response => (this.products = response.data,
       console.log(this.products)))
     
