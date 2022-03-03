@@ -42,7 +42,7 @@ import { io } from "socket.io-client";
 import Swal from "sweetalert2"
 // import { ref } from 'vue';
 // import Popup from '../components/Popup';
-import DigitalClock from '../components/DigitalClock.vue';
+import DigitalClock from './DigitalClock.vue';
 import axios from 'axios'
 
 export default {
