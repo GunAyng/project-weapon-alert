@@ -18,6 +18,7 @@
             <div class="card text-white bg-dark mb-3 body">
               <h4 class="card-title">{{ item.name }}</h4>
               <h5 class="card-title">{{ item.info }}</h5>
+
             </div>
             <div class="card-footer">
             
@@ -98,12 +99,13 @@ export default {
             Height: 1000,
             title: "Weapon alert "+item.name,
             html:
-          '<img src="http://127.0.0.1:5000/video_feed/0" height="300" width="400">' +"    "+
+          '<img src="http://127.0.0.1:5000/video_feed/'+(item.data.idcam-1)+'" height="300" width="400">' +"    "+
           '<img src= '+'"'+item.data.url+ '"'+' height="300" width="400">' + '<h1 class="front-weight-light"></h1>'+
           "Detect : "+item.data.detect+'<br>'+
           "Location : "+item.data.location+'<br>'+
           "Date : "+item.data.date+'<br>'+
           "Time : "+item.data.time+'<br>'
+          
           ,
             
   
