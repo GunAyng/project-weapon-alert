@@ -1,40 +1,43 @@
 <template>
-<nav class="navbar navbar-light bg-warning">
-  <a class="navbar-brand" href="#">Weapon Alert</a>
-</nav>
-<div class= "container">
-            <h2 align = "center"> Alert </h2>
-            
-</div>
-<div class= "container my-5">
-  <div class="row">
-    <div class="col-md-7">
-      <img src="https://cdn.pixabay.com/photo/2014/08/22/21/45/child-424772_960_720.jpg" class="img-thumbnail" alt="" />
-    </div>
-    <div class="col-md-5">
-      <h3 class="front-weight-light">Cam : ... </h3>
-      <h3 class="mt-4">
-      Detect : ...
-      </h3>
-      <h3 class="mt-4">
-      Location : ...
-      </h3>
-      <h3 class="mt-4">
-      Date : ...
-      </h3>
-      <h3 class="mt-4">
-      Time : ...
-      </h3>
-    </div> <div class="text-center">
-    <router-link to ="page2"><button type="button" class="btn btn-dark mt-3">OK</button></router-link>
-  </div> </div>
-</div>
-<div class="text-center">
-  <h4>stream Camera</h4>
-  <img src="http://127.0.0.1:5000/video_feed/0" class="rounded" alt="">
-</div>
+  <div>
+    <label>URL</label>
+    <input type="text" v-model="form.first_name" />
+
+    <label>INFO</label>
+    <input type="text" v-model="form.last_name" />
+
+    <label>NAME</label>
+    <input type="text" v-model="form.email" />
+
+    <button v-on:click="submit(form)">Submit</button>
+  </div>
 </template>
 
 <script>
+import axios from "axios";
+export default {
+  data() {
+    return {
+      form: {
+        first_name: "",
+        last_name: "",
+        email: "",
+      },
+    };
+  },
 
+  methods: {
+    submit: function (form) {
+      const formData = new FormData();
+      formData.append("url", form.first_name);
+      formData.append("info", form.last_name);
+      formData.append("name", form.email);
+      axios
+        .post("http://127.0.0.1:8000/addDB", formData)
+        .then((response) => {
+          console.log(response);
+        });
+    },
+  },
+};
 </script>

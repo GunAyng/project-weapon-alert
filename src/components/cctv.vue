@@ -34,8 +34,10 @@
             </div>
           </div>
         </div>
+        
       </div>
     </div>
+  
   </div>
 </template>
 <script>
@@ -87,6 +89,7 @@ export default {
     let socket = io(url);
     socket.on("my event", (data) => {
       console.log(data);
+      console.log(this.products)
       this.products[data.idcam - 1].display = true;
       this.products[data.idcam - 1].data = data
     });
@@ -99,7 +102,7 @@ export default {
             Height: 1000,
             title: "Weapon alert "+item.name,
             html:
-          '<img src="http://127.0.0.1:5000/video_feed/'+(item.data.idcam-1)+'" height="300" width="400">' +"    "+
+          '<img src='+'"'+this.products[item.data.idcam - 1].image+ '"'+' height="300" width="400">' +"    "+
           '<img src= '+'"'+item.data.url+ '"'+' height="300" width="400">' + '<h1 class="front-weight-light"></h1>'+
           "Detect : "+item.data.detect+'<br>'+
           "Location : "+item.data.location+'<br>'+
